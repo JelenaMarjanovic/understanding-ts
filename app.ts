@@ -1,12 +1,13 @@
-// const person: {
-//   name: string;
-//   age: number;
-//   hobbies: string[];
-// } = {
-const person = {
+const person: {
+  name: string;
+  age: number;
+  hobbies: string[];
+  role: [number, string];
+} = {
   name: 'Maximilian',
   age: 30,
   hobbies: ['Sports', 'Cooking'],
+  role: [2, 'author']
 };
 
 console.log(person.name);
@@ -26,8 +27,8 @@ const product = {
   tags: ['great-offer', 'hot-and-new'],
   details: {
     title: 'Red Carpet',
-    description: 'A great carpet - almost brand-new!',
-  },
+    description: 'A great carpet - almost brand-new!'
+  }
 };
 
 let favoriteActivities: string[];
