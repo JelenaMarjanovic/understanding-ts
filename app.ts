@@ -1,10 +1,12 @@
 // const person: {
 //   name: string;
 //   age: number;
+//   hobbies: string[];
 // } = {
 const person = {
   name: 'Maximilian',
   age: 30,
+  hobbies: ['Sports', 'Cooking'],
 };
 
 console.log(person.name);
@@ -27,3 +29,10 @@ const product = {
     description: 'A great carpet - almost brand-new!',
   },
 };
+
+let favoriteActivities: string[];
+favoriteActivities = ['Sports'];
+
+for (const hobby of person.hobbies) {
+  console.log(hobby.toUpperCase());
+}
