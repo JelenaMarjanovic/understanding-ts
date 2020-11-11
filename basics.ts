@@ -1,9 +1,9 @@
-function add(
+const add = (
   n1: number,
   n2: number,
   showResult: boolean,
   phrase: string
-): number | void {
+): number | void => {
   const result = n1 + n2;
 
   if (showResult) {
@@ -11,7 +11,7 @@ function add(
   } else {
     return result;
   }
-}
+};
 
 let number1: number;
 number1 = 5;

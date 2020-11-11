@@ -2,11 +2,11 @@ type Combinable = number | string;
 
 type ConversionDescriptor = 'as-number' | 'as-text';
 
-function combine(
+const combine = (
   input1: Combinable,
   input2: Combinable,
   resultConversion: ConversionDescriptor
-) {
+) => {
   let result: Combinable;
 
   if (
@@ -25,7 +25,7 @@ function combine(
   // } else {
   //   return result.toString();
   // }
-}
+};
 
 const combinedAges = combine(30, 26, 'as-number');
 console.log(combinedAges);
@@ -47,13 +47,9 @@ u1 = {
   age: 30
 };
 
-function greet(user: User) {
-  console.log('Hi, I am ' + user.name);
-}
+const greet = (user: User) => console.log('Hi, I am ' + user.name);
 
-function isOlder(user: User, checkAge: number) {
-  return checkAge > user.age;
-}
+const isOlder = (user: User, checkAge: number) => checkAge > user.age;
 
 greet(u1);
 
