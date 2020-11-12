@@ -33,3 +33,14 @@ user1 = new Person('Max');
 // };
 
 user1.greet('Hi there - I am');
+
+// type AddFn = (a: number, b: number) => number;
+interface AddFn {
+  (a: number, b: number): number;
+}
+
+let add: AddFn;
+
+add = (n1: number, n2: number) => n1 + n2;
+
+console.log(add(4, 3));
