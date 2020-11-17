@@ -56,6 +56,27 @@ function add(a: Combinable, b: Combinable) {
 const result = add('Max', ' Schwarz');
 result.split(' ');
 
+interface User {
+  id: string;
+  name: string;
+  job?: {
+    title?: string;
+    description?: string;
+  };
+}
+
+const fetchedUserData: User = {
+  id: 'u1',
+  name: 'Max',
+  // Can comment 'job' property out
+  job: {
+    title: 'CEO',
+    description: 'My own company'
+  }
+};
+
+console.log(fetchedUserData?.job?.title);
+
 // type UnknownEmployee = Employee | Admin;
 
 // function printEmployeeInformation(emp: UnknownEmployee) {
