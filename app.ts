@@ -57,3 +57,46 @@ function extractAndConvert<T extends object, U extends keyof T>(
 
 // console.log(extractAndConvert({}, 'name'));
 console.log(extractAndConvert({ name: 'Max' }, 'name'));
+
+class DataStorage<T> {
+  private data: T[] = [];
+
+  addItem(item: T) {
+    this.data.push(item);
+  }
+
+  removeItem(item: T) {
+    if (this.data.indexOf(item) === -1) {
+      return;
+    }
+
+    this.data.splice(this.data.indexOf(item), 1);
+  }
+
+  getItems() {
+    return [...this.data];
+  }
+}
+
+const textStorage = new DataStorage<string | number | boolean>();
+textStorage.addItem('Max');
+textStorage.addItem('Manuel');
+textStorage.removeItem('Max');
+console.log(textStorage.getItems());
+
+const numberStorage = new DataStorage<number>();
+numberStorage.addItem(30);
+numberStorage.addItem(13);
+numberStorage.removeItem(30);
+console.log(numberStorage.getItems());
+
+// const objStorage = new DataStorage<object>();
+// const maxObj = { name: 'Max' };
+// // Because objects are the reference type, it won't work like this:
+// // objStorage.addItem({ name: 'Max });
+// // objStorage.removeItem({ name: 'Max' });
+// // because these two are completely different objects with the same key:value pair
+// objStorage.addItem(maxObj);
+// objStorage.addItem({ name: 'Manuel' });
+// objStorage.removeItem(maxObj);
+// console.log(objStorage.getItems());
