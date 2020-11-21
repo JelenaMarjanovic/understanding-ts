@@ -100,3 +100,28 @@ console.log(numberStorage.getItems());
 // objStorage.addItem({ name: 'Manuel' });
 // objStorage.removeItem(maxObj);
 // console.log(objStorage.getItems());
+
+interface CourseGoal {
+  title: string;
+  description: string;
+  completeUntil: Date;
+}
+
+function createCourseGoal(
+  title: string,
+  description: string,
+  date: Date
+): CourseGoal {
+  // return { title: title, description: description, completeUntil: date };
+  let courseGoal: Partial<CourseGoal> = {};
+
+  courseGoal.title = title;
+  courseGoal.description = description;
+  courseGoal.completeUntil = date;
+
+  return courseGoal as CourseGoal;
+}
+
+const names: Readonly<string[]> = ['Max', 'Anna'];
+// names.push('Manuel');
+// names.pop();
