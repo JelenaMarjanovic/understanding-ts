@@ -13,6 +13,12 @@
 //   console.log(words);
 // });
 
+interface Object {
+  name: string;
+  age: number;
+  assign: (a: object, b: object) => object;
+}
+
 function merge<T extends object, U extends object>(objA: T, objB: U) {
   return Object.assign(objA, objB);
 }
