@@ -15,15 +15,22 @@ function Logger(logString: string) {
 function WithTemplate(template: string, hookId: string) {
   console.log('TEMPLATE FACTORY');
 
-  return function (constructor: any) {
-    console.log('Rendering template');
-    const hookEl = document.getElementById(hookId);
-    const p = new constructor();
+  return function <T extends { new (...args: any[]): { name: string } }>(
+    originalConstructor: T
+  ) {
+    return class extends originalConstructor {
+      constructor(..._: any[]) {
+        super();
 
-    if (hookEl) {
-      hookEl.innerHTML = template;
-      hookEl.querySelector('h1')!.textContent = p.name;
-    }
+        console.log('Rendering template');
+        const hookEl = document.getElementById(hookId);
+
+        if (hookEl) {
+          hookEl.innerHTML = template;
+          hookEl.querySelector('h1')!.textContent = this.name;
+        }
+      }
+    };
   };
 }
 
@@ -38,9 +45,9 @@ class DecoratedPerson {
   }
 }
 
-// const p = new DecoratedPerson();
-
-// console.log(p);
+// Without this initialization, we won't see our template
+const p = new DecoratedPerson();
+console.log(p);
 
 function Log(target: any, propertyName: string | Symbol) {
   console.log('Property decorator!');
