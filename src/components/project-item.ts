@@ -1,5 +1,5 @@
-import { Component } from './base-component.js';
-import { autoBind } from '../decorators/autoBind.js';
+import Component from './base-component.js';
+import AutoBind from '../decorators/autoBind.js';
 import { Draggable } from '../models/drag-drop.js';
 import { Project } from '../models/project.js';
 
@@ -26,7 +26,7 @@ export class ProjectItem
     this.renderContent();
   }
 
-  @autoBind
+  @AutoBind
   dragStartHandler(event: DragEvent) {
     event.dataTransfer!.setData('text/plain', this.project.id);
     event.dataTransfer!.effectAllowed = 'move';
